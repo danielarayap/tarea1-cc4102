@@ -1,6 +1,6 @@
-public class EditDistanceAlgorithm {
+class EditDistanceAlgorithm {
 
-    static int computeEditDistance(String s1, String s2){
+    int computeEditDistance(String s1, String s2){
         int n = s1.length() + 1;
         int m = s2.length() + 1;
         int[][] graphMatrix = new int[n][m];
@@ -19,8 +19,10 @@ public class EditDistanceAlgorithm {
         return graphMatrix[n-1][m-1];
     }
 
+    /*
     public static void main(String[] args) {
-        int result = computeEditDistance("perro", "gato");
+        int result = computeEditDistance("can", "pan");
         System.out.println(result);
     }
+    */
 }
