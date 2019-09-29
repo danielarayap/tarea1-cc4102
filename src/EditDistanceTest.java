@@ -1,16 +1,12 @@
 import java.util.concurrent.ThreadLocalRandom;
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-import org.junit.Before;
 
 public class EditDistanceTest{
-    private int[] M;
-    private EditDistanceAlgorithm algorithm;
-    private String string1, string2;
+    private static int[] M;
+    private static EditDistanceAlgorithm algorithm;
+    private static String string1, string2;
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         StringGenerator sg = new StringGenerator();
         algorithm = new EditDistanceAlgorithm();
         int min = (int) Math.pow(2, 10);
@@ -20,17 +16,17 @@ public class EditDistanceTest{
         int len2 = ThreadLocalRandom.current().nextInt(min, max + 1);
         string1 = sg.generateString(len1);
         string2 = sg.generateString(len2);
+        System.out.println(String.format("String 1: %s", string1));
+        System.out.println(String.format("String 2: %s", string2));
     }
 
     @Test
     public void testAlgorithm() {
-        System.out.println(string1);
-        System.out.println(string2);
         long startTime = System.currentTimeMillis();
         int result = algorithm.computeEditDistance(string1, string2);
         long endTime = System.currentTimeMillis();
-        System.out.println(endTime-startTime);
-        System.out.println(result);
+        System.out.println(String.format("Elapsed time: %d", endTime-startTime));
+        System.out.println(String.format("Edit distance: %d", result));
     }
 
 
