@@ -1,2 +1,6 @@
 # Project exclude paths
 /out/
+
+# IDE settings
+/.idea/
+tarea1-cc4102.iml
