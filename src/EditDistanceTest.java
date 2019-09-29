@@ -1,3 +1,6 @@
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class EditDistanceTest{
@@ -29,6 +32,14 @@ public class EditDistanceTest{
         System.out.println(String.format("Edit distance: %d", result));
     }
 
+    @Test
+    public void testSpaceEfficientAlgorithm() {
+        long startTime = System.currentTimeMillis();
+        int result = algorithm.computeEditDistanceSpaceEfficient(string1, string2);
+        long endTime = System.currentTimeMillis();
+        System.out.println(String.format("Elapsed time: %d", endTime-startTime));
+        System.out.println(String.format("Edit distance: %d", result));
+    }
 
 
 
