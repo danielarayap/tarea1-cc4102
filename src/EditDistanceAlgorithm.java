@@ -1,6 +1,8 @@
 class EditDistanceAlgorithm {
 
-    int computeEditDistance(String s1, String s2){
+    static final int BLOCK = 1024;
+
+/*    static int computeEditDistance(String s1, String s2){
         int n = s1.length() + 1;
         int m = s2.length() + 1;
         int[][] graphMatrix = new int[n][m];
@@ -17,9 +19,11 @@ class EditDistanceAlgorithm {
             }
         }
         return graphMatrix[n-1][m-1];
-    }
+    }*/
 
-    int computeEditDistanceSpaceEfficient(String s1, String s2) {
+
+
+    static int computeEditDistanceRam(String s1, String s2) {
         int n = s1.length() + 1;
         int m = s2.length() + 1;
         int[] prevRow = new int[n];
@@ -41,10 +45,16 @@ class EditDistanceAlgorithm {
         return thisRow[n-1];
     }
 
-    /*
-    public static void main(String[] args) {
-        int result = computeEditDistance("can", "pan");
-        System.out.println(result);
+    static int partitionsAlgorithm(int memorySize){
+        return 0;
     }
-    */
+
+    public static void main(String[] args) {
+        int[] mem = new int[]{20*BLOCK, 40*BLOCK, 80*BLOCK};
+        for (int i = 0; i < mem.length; i++) {
+            int result = partitionsAlgorithm(mem[i])
+        }
+        System.out.println(computeEditDistanceRam("cat", "dog"));
+    }
+    
 }
